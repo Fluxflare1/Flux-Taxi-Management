@@ -1,3 +1,11 @@
+# backend/src/flux_taxi/urls.py
+
+from django.urls import path, include
+
+urlpatterns = [
+    path('carpooling/', include('carpooling.urls')),
+    # other paths...
+]
 # flux_taxi/urls.py
 
 from django.urls import include

@@ -1,3 +1,11 @@
+# flux_taxi/urls.py
+
+from django.urls import include, path
+
+urlpatterns = [
+    # Other URLs
+    path('corporate_taxi/', include('corporate_taxi.urls')),
+]
 from django.urls import path
 from .views import fare_splitting_view
 

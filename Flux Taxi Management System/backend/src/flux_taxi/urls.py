@@ -1,3 +1,11 @@
+# flux_taxi/urls.py
+
+from django.urls import include
+
+urlpatterns = [
+    # other URLs
+    path('drivers/', include('flux_taxi.driver_aggregator.urls')),
+]
 # project/urls.py
 
 from django.contrib import admin

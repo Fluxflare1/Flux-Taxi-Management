@@ -1,0 +1,7 @@
+<!-- backend/src/flux_taxi/carpooling/templates/carpooling/ride_creation.html -->
+<h1>Create Carpool Ride</h1>
+<form method="post">
+    {% csrf_token %}
+    {{ form.as_p }}
+    <button type="submit">Create Ride</button>
+</form>

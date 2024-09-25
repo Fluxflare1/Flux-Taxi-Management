@@ -20,7 +20,15 @@ const RideHistory = () => {
       <ul>
         {history.map(ride => (
           <li key={ride.id}>
-            {ride.ride.pickup_location} to {ride.ride.dropoff_location} - {ride.completed_at}
+            {ride.ride.pickup_location} to {ride.ride.dropoff_location} - Completed at: {ride.completed_at}
+            {ride.driver_rating && (
+              <span> | Rating: {ride.driver_rating}/5</span>
+            )}
           </li>
         ))}
       </ul>
+    </div>
+  );
+};
+
+export default RideHistory;

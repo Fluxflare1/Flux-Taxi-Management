@@ -1,1 +1,31 @@
-
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Admin Dashboard</title>
+    <link rel="stylesheet" href="{% static 'css/admin_dashboard.css' %}">
+</head>
+<body>
+    <div class="dashboard-container">
+        <h1>Admin Dashboard</h1>
+        <div class="dashboard-stats">
+            <div class="stat-item">
+                <h3>Total Bookings</h3>
+                <p>{{ total_bookings }}</p>
+            </div>
+            <div class="stat-item">
+                <h3>Active Drivers</h3>
+                <p>{{ active_drivers }}</p>
+            </div>
+            <div class="stat-item">
+                <h3>Available Vehicles</h3>
+                <p>{{ available_vehicles }}</p>
+            </div>
+            <div class="stat-item">
+                <h3>Total Earnings</h3>
+                <p>₦{{ total_earnings }}</p>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

@@ -1,0 +1,7 @@
+<!-- backend/src/flux_taxi/carpooling/templates/carpooling/ride_listing.html -->
+<h1>Available Rides</h1>
+<ul>
+    {% for ride in rides %}
+        <li>{{ ride.pickup_location }} to {{ ride.dropoff_location }} on {{ ride.date_time }}</li>
+    {% endfor %}
+</ul>

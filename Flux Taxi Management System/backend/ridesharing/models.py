@@ -1,3 +1,5 @@
+python manage.py makemigrations
+python manage.py migrate
 from django.contrib.gis.db import models
 from django.contrib.auth.models import User
 

@@ -1,0 +1,37 @@
+<!-- flux_taxi/corporate_taxi/templates/corporate_taxi.html -->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Corporate Taxi Service</title>
+</head>
+<body>
+    <h1>Corporate Taxi Rides</h1>
+    <table>
+        <thead>
+            <tr>
+                <th>Ride Date</th>
+                <th>Pickup Location</th>
+                <th>Dropoff Location</th>
+                <th>Fare</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for ride in corporate_rides %}
+                <tr>
+                    <td>{{ ride.ride_date }}</td>
+                    <td>{{ ride.pickup_location }}</td>
+                    <td>{{ ride.dropoff_location }}</td>
+                    <td>{{ ride.fare }}</td>
+                </tr>
+            {% empty %}
+                <tr>
+                    <td colspan="4">No corporate rides found.</td>
+                </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</body>
+</html>

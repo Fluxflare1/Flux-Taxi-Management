@@ -15,6 +15,47 @@ urlpatterns = [
     path('specialty-vehicles/', include('specialty_vehicles.urls')),
     path('carpooling/', include('carpooling.urls')),
     path('shuttle-service/', include('shuttle_service.urls')),
+    path('on-demand-dispatch/', include('on_demand_dispatch.urls')),
+    path('subscription-service/', include('subscription_service.urls')),
+    path('fare-negotiation/', include('fare_negotiation.urls')),  # Add this line
+]
+# project/urls.py
+
+from django.contrib import admin
+from django.urls import path, include
+
+urlpatterns = [
+    path('admin/', admin.site.urls),
+    path('ride-hailing/', include('ride_hailing.urls')),
+    path('car-rental/', include('car_rental.urls')),
+    path('outstation-service/', include('outstation_service.urls')),
+    path('corporate-taxi/', include('corporate_taxi_service.urls')),
+    path('airport-service/', include('airport_service.urls')),
+    path('fixed-route-taxi/', include('fixed_route_taxi.urls')),
+    path('driver-aggregator/', include('driver_aggregator.urls')),
+    path('specialty-vehicles/', include('specialty_vehicles.urls')),
+    path('carpooling/', include('carpooling.urls')),
+    path('shuttle-service/', include('shuttle_service.urls')),
+    path('on-demand-dispatch/', include('on_demand_dispatch.urls')),
+    path('subscription-service/', include('subscription_service.urls')),  # Add this line
+]
+# project/urls.py
+
+from django.contrib import admin
+from django.urls import path, include
+
+urlpatterns = [
+    path('admin/', admin.site.urls),
+    path('ride-hailing/', include('ride_hailing.urls')),
+    path('car-rental/', include('car_rental.urls')),
+    path('outstation-service/', include('outstation_service.urls')),
+    path('corporate-taxi/', include('corporate_taxi_service.urls')),
+    path('airport-service/', include('airport_service.urls')),
+    path('fixed-route-taxi/', include('fixed_route_taxi.urls')),
+    path('driver-aggregator/', include('driver_aggregator.urls')),
+    path('specialty-vehicles/', include('specialty_vehicles.urls')),
+    path('carpooling/', include('carpooling.urls')),
+    path('shuttle-service/', include('shuttle_service.urls')),
     path('on-demand-dispatch/', include('on_demand_dispatch.urls')),  # Add this line
 ]
 # project/urls.py

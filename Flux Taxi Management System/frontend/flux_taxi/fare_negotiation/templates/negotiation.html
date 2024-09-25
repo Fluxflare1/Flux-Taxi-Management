@@ -1,1 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Fare Negotiation</title>
+</head>
+<body>
+    <h1>Fare Negotiation</h1>
+    <form id="fare-negotiation-form">
+        <label for="proposed_fare">Proposed Fare:</label>
+        <input type="text" id="proposed_fare" name="proposed_fare" required>
+        <button type="submit">Propose Fare</button>
+    </form>
+    <div id="negotiation-status"></div>
+    <script>
+    document.getElementById('fare-negotiation-form').onsubmit = function(e) {
+        e.preventDefault();
+        const proposedFare = document.getElementById('proposed_fare').value;
 
+        fetch('/fare-negotiations/', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',
+            },
+            body: JSON.stringify({ proposed_fare: proposedFare }),
+        })
+        .then(response => response.json())
+        .then(data => {
+            document.getElementById('negotiation-status').innerText = 'Proposal sent successfully!';
+        })
+        .catch(error => {
+            console.error('Error:', error);
+        });
+    };
+    </script>
+</body>
+</html>

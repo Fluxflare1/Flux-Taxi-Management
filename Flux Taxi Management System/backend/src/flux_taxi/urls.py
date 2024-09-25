@@ -1,3 +1,9 @@
+from django.urls import path
+from .views import fare_splitting_view
+
+urlpatterns = [
+    path('fare-splitting/<int:ride_id>/', fare_splitting_view, name='fare_splitting'),
+]
 # backend/src/flux_taxi/urls.py
 
 from django.urls import path, include

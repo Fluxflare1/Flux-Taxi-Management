@@ -1,0 +1,10 @@
+<form method="POST" action="{% url 'create_trip' %}">
+  {% csrf_token %}
+  <label for="pickup">Pickup Location:</label>
+  <input type="text" id="pickup" name="pickup" required>
+  
+  <label for="dropoff">Dropoff Location:</label>
+  <input type="text" id="dropoff" name="dropoff" required>
+  
+  <button type="submit">Create Trip</button>
+</form>

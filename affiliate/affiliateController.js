@@ -1,3 +1,4 @@
+
 const Affiliate = require('./affiliateModel');
 const User = require('../models/user'); // Assuming you have a User model
 

@@ -1,3 +1,7 @@
+def view_trip(request, trip_id):
+    trip = Trip.objects.get(id=trip_id)
+    context = {'trip': trip}
+    return render(request, 'view_trip.html', context)
 from .models import Trip
 from django.http import HttpResponseRedirect
 

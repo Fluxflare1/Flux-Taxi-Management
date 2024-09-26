@@ -1,3 +1,8 @@
+// ... existing imports
+const { registerAffiliate, getReferralLink } = require('./affiliateController');
+
+router.post('/register', registerAffiliate);
+router.get('/:affiliateId/referral-link', getReferralLink);
 const express = require('express');
 const { registerAffiliate, getReferralLink } = require('./affiliateController');
 

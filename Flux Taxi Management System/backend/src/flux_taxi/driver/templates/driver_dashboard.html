@@ -1,3 +1,13 @@
+<h2>Driver Dashboard</h2>
+<form method="POST" action="{% url 'set_driver_availability' driver.id %}">
+  {% csrf_token %}
+  <label for="availability">Availability:</label>
+  <select name="availability" id="availability">
+    <option value="True" {% if driver.is_available %}selected{% endif %}>Available</option>
+    <option value="False" {% if not driver.is_available %}selected{% endif %}>Unavailable</option>
+  </select>
+  <button type="submit">Update</button>
+</form>
 <h2>Welcome, {{ driver.user.username }}</h2>
 
 <p>Total Earnings: ₦{{ total_earnings }}</p>

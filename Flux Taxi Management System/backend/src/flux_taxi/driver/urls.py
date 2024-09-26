@@ -1,3 +1,6 @@
+urlpatterns += [
+    path('toggle_availability/', views.toggle_availability, name='toggle_availability'),
+]
 from django.urls import path
 from . import views
 

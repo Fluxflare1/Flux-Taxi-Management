@@ -1,3 +1,10 @@
+from django.http import JsonResponse
+
+def sos_request(request):
+    if request.method == 'POST':
+        # Logic to handle SOS request
+        # Example: Notify emergency contacts or send location
+        return JsonResponse({'status': 'SOS request sent successfully.'})
 # flux_taxi/views.py
 import logging
 

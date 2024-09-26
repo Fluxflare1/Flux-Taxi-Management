@@ -1,4 +1,6 @@
 # flux_taxi/settings.py
+SECURE_SSL_REDIRECT = True
+# flux_taxi/settings.py
 INSTALLED_APPS = [
     ...,
     'django_otp',

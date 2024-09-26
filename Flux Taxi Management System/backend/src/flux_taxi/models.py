@@ -1,5 +1,25 @@
 from django.db import models
 
+class TaxiCompany(models.Model):
+    name = models.CharField(max_length=255)
+    # Other relevant fields
+
+class Driver(models.Model):
+    name = models.CharField(max_length=255)
+    availability = models.BooleanField(default=True)  # For overall availability
+    active_company = models.ForeignKey(TaxiCompany, on_delete=models.SET_NULL, null=True, blank=True)
+    companies = models.ManyToManyField(TaxiCompany)  # Driver can be linked to multiple companies
+    # Other relevant fields
+
+    def set_availability(self, company=None):
+        if company:
+            self.active_company = company
+        self.save()
+
+    def check_availability(self, company):
+        return self.availability and (self.active_company == company or company is None)
+from django.db import models
+
 class Trip(models.Model):
     user = models.ForeignKey(User, on_delete=models.CASCADE)
     status = models.CharField(max_length=20, db_index=True)  # Index on status

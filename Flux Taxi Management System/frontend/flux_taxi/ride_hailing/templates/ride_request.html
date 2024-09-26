@@ -1,0 +1,16 @@
+<!-- flux_taxi/ride_hailing/templates/ride_request.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Request Ride</title>
+</head>
+<body>
+    <h1>Request a Ride</h1>
+    <form method="POST">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <button type="submit">Request Ride</button>
+    </form>
+</body>
+</html>

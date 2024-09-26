@@ -1,3 +1,6 @@
+class Driver(models.Model):
+    # Existing fields
+    is_available = models.BooleanField(default=True)
 from django.db import models
 from django.contrib.auth.models import User
 

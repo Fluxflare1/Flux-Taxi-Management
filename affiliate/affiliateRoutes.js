@@ -1,3 +1,4 @@
+router.post('/promote-service', promoteService);
 // ... existing imports
 const { registerAffiliate, getReferralLink } = require('./affiliateController');
 

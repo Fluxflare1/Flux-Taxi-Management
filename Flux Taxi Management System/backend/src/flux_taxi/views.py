@@ -1,3 +1,11 @@
+from django.shortcuts import render
+from .models import Driver, TaxiCompany
+
+def update_availability(request, driver_id, company_id):
+    driver = Driver.objects.get(id=driver_id)
+    company = TaxiCompany.objects.get(id=company_id)
+    driver.set_availability(company=company)
+    return render(request, 'driver_availability.html', {'driver': driver})
 def verify_kyc(request):
     if request.method == 'POST':
         # Logic to verify KYC

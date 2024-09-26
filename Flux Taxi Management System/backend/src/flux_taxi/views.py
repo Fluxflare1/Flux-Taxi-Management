@@ -1,3 +1,11 @@
+# flux_taxi/views.py
+import logging
+
+logger = logging.getLogger(__name__)
+
+def some_view(request):
+    logger.info("This is an info message")
+    # View logic
 from django.core.cache import cache
 
 def trip_report(request):

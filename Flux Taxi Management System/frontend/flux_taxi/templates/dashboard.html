@@ -1,0 +1,36 @@
+<!-- flux_taxi/templates/dashboard.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Admin Dashboard</title>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body>
+    <h1>Admin Dashboard</h1>
+    <canvas id="tripChart"></canvas>
+    <script>
+        var ctx = document.getElementById('tripChart').getContext('2d');
+        var tripChart = new Chart(ctx, {
+            type: 'bar',
+            data: {
+                labels: ['Total Trips', 'Completed Trips'],
+                datasets: [{
+                    label: 'Trips Statistics',
+                    data: [{{ total_trips }}, {{ completed_trips }}],
+                    backgroundColor: ['rgba(75, 192, 192, 0.2)', 'rgba(153, 102, 255, 0.2)'],
+                    borderColor: ['rgba(75, 192, 192, 1)', 'rgba(153, 102, 255, 1)'],
+                    borderWidth: 1
+                }]
+            },
+            options: {
+                scales: {
+                    y: {
+                        beginAtZero: true
+                    }
+                }
+            }
+        });
+    </script>
+</body>
+</html>

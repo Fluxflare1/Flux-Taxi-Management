@@ -1,4 +1,16 @@
 # backend/src/flux_taxi/views.py
+from channels.generic.websocket import WebsocketConsumer
+import json
+
+class LocationConsumer(WebsocketConsumer):
+    def connect(self):
+        self.accept()
+    
+    def receive(self, text_data):
+        data = json.loads(text_data)
+        # Broadcast driver location to passenger
+        self.send(text_data=json.dumps({'lat': data['lat'], 'lng': data['lng']}))
+# backend/src/flux_taxi/views.py
 from rest_framework.views import APIView
 from rest_framework.response import Response
 

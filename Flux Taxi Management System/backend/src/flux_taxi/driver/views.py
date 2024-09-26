@@ -1,3 +1,8 @@
+def set_driver_availability(request, driver_id, availability):
+    driver = Driver.objects.get(id=driver_id)
+    driver.is_available = availability
+    driver.save()
+    return HttpResponseRedirect('/driver/dashboard/')
 from django.http import HttpResponseRedirect
 
 def toggle_availability(request):

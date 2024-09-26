@@ -1,0 +1,7 @@
+<!-- flux_taxi/inspection/templates/inspection_schedule.html -->
+<h2>Schedule Inspection</h2>
+<form method="post">
+    {% csrf_token %}
+    {{ form.as_p }}
+    <button type="submit">Schedule</button>
+</form>

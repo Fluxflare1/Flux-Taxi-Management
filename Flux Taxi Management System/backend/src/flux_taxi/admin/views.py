@@ -1,4 +1,20 @@
 from django.shortcuts import render
+from .models import Trip
+
+def trip_report(request):
+    total_trips = Trip.objects.count()
+    completed_trips = Trip.objects.filter(status='completed').count()
+    pending_trips = Trip.objects.filter(status='pending').count()
+    cancelled_trips = Trip.objects.filter(status='cancelled').count()
+
+    context = {
+        'total_trips': total_trips,
+        'completed_trips': completed_trips,
+        'pending_trips': pending_trips,
+        'cancelled_trips': cancelled_trips,
+    }
+    return render(request, 'trip_report.html', context)
+from django.shortcuts import render
 from trip.models import Trip
 
 def admin_dashboard(request):

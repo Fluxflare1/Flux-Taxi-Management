@@ -1,6 +1,31 @@
 const mongoose = require('mongoose');
 
 const affiliateSchema = new mongoose.Schema({
+    userId: {
+        type: mongoose.Schema.Types.ObjectId,
+        ref: 'User', // Assuming you have a User model
+        required: true
+    },
+    referralLink: {
+        type: String,
+        required: true,
+        unique: true
+    },
+    earnings: {
+        type: Number,
+        default: 0
+    },
+    createdAt: {
+        type: Date,
+        default: Date.now
+    }
+});
+
+const Affiliate = mongoose.model('Affiliate', affiliateSchema);
+module.exports = Affiliate;
+const mongoose = require('mongoose');
+
+const affiliateSchema = new mongoose.Schema({
     email: { type: String, required: true, unique: true },
     // Add commission fields
     totalEarnings: { type: Number, default: 0 },

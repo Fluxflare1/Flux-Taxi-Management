@@ -1,3 +1,15 @@
+# flux_taxi/driver/models.py
+
+from django.db import models
+from django.contrib.auth.models import User
+
+class Driver(models.Model):
+    user = models.OneToOneField(User, on_delete=models.CASCADE)
+    preferred_destination = models.CharField(max_length=255, blank=True, null=True)  # New field for preferred destination
+    # Add other fields as necessary
+
+    def __str__(self):
+        return self.user.username
 class Driver(models.Model):
     # Existing fields
     is_available = models.BooleanField(default=True)

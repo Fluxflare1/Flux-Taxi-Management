@@ -1,3 +1,15 @@
+const express = require('express');
+const { registerAffiliate, getReferralLink } = require('./affiliateController');
+
+const router = express.Router();
+
+// Route for registering an affiliate
+router.post('/register', registerAffiliate);
+
+// Route for getting the referral link
+router.get('/:affiliateId/referral-link', getReferralLink);
+
+module.exports = router;
 // Route for fetching referral statistics
 router.get('/:id/stats', async (req, res) => {
     try {

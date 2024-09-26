@@ -1,0 +1,7 @@
+<!-- flux_taxi/inspection/templates/inspection_center_admin.html -->
+<h2>Inspection Centers</h2>
+<ul>
+    {% for center in centers %}
+        <li>{{ center.name }} - {{ center.location }}</li>
+    {% endfor %}
+</ul>

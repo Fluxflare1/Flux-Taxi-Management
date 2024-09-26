@@ -1,0 +1,24 @@
+<h2>Welcome, {{ driver.user.username }}</h2>
+
+<p>Total Earnings: ₦{{ total_earnings }}</p>
+
+<h3>Vehicles</h3>
+<ul>
+  {% for vehicle in vehicles %}
+    <li>{{ vehicle.make }} {{ vehicle.model }} - Status: {{ vehicle.status }}</li>
+  {% endfor %}
+</ul>
+
+<h3>Availability</h3>
+<form method="POST" action="{% url 'toggle_availability' %}">
+  {% csrf_token %}
+  <input type="checkbox" name="is_available" {% if driver.is_available %}checked{% endif %}>
+  <button type="submit">Update Availability</button>
+</form>
+
+<h3>Trips</h3>
+<ul>
+  {% for trip in trips %}
+    <li>From {{ trip.pickup_location }} to {{ trip.dropoff_location }} - Fare: ₦{{ trip.fare }}</li>
+  {% endfor %}
+</ul>

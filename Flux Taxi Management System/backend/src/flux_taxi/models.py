@@ -1,3 +1,10 @@
+from django.db import models
+
+class Trip(models.Model):
+    user = models.ForeignKey(User, on_delete=models.CASCADE)
+    status = models.CharField(max_length=20, db_index=True)  # Index on status
+    fare = models.DecimalField(max_digits=10, decimal_places=2)
+    # Other fields...
 # backend/src/flux_taxi/models.py
 class Ride(models.Model):
     driver = models.ForeignKey(Driver, on_delete=models.CASCADE)

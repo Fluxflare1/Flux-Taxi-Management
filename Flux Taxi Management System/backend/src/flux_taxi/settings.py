@@ -1,4 +1,7 @@
 # flux_taxi/settings.py
+DEBUG = False
+ALLOWED_HOSTS = ['yourdomain.com']
+# flux_taxi/settings.py
 import sentry_sdk
 from sentry_sdk.integrations.django import DjangoIntegration
 

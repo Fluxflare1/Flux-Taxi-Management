@@ -1,3 +1,9 @@
+def assign_passenger_to_driver(passenger, driver, company):
+    if driver.check_availability(company):
+        # Proceed with assigning passenger to driver
+        # Implement ride assignment logic here
+        return True
+    return False
 # passenger_assignment.py
 
 from .models import Passenger  # Import your Passenger model

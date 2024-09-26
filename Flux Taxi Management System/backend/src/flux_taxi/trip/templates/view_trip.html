@@ -1,0 +1,13 @@
+<h2>Trip Details</h2>
+<p>Pickup: {{ trip.pickup_location }}</p>
+<p>Dropoff: {{ trip.dropoff_location }}</p>
+<p>Status: {{ trip.status }}</p>
+<p>Fare: ₦{{ trip.fare }}</p>
+
+{% if trip.status == "Pending" %}
+  <p>Your trip is awaiting a driver assignment.</p>
+{% elif trip.status == "In Progress" %}
+  <p>Your trip is in progress.</p>
+{% elif trip.status == "Completed" %}
+  <p>Your trip is completed. Thank you for riding with us!</p>
+{% endif %}

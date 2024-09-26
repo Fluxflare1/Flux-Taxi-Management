@@ -2,6 +2,16 @@ const express = require('express');
 const router = express.Router();
 const affiliateController = require('./affiliateController');
 
+// Existing routes...
+
+// Route for tracking referrals
+router.post('/referral', affiliateController.trackReferral);
+
+module.exports = router; // Export the router
+const express = require('express');
+const router = express.Router();
+const affiliateController = require('./affiliateController');
+
 // Route for affiliate registration
 router.post('/register', affiliateController.registerAffiliate);
 

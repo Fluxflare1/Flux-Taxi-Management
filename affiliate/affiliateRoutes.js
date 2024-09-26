@@ -1,3 +1,12 @@
+// Route for fetching referral statistics
+router.get('/:id/stats', async (req, res) => {
+    try {
+        const affiliate = await Affiliate.findById(req.params.id).populate('referrals');
+        res.status(200).json({ earnings: affiliate.earnings, referrals: affiliate.referrals });
+    } catch (error) {
+        res.status(500).json({ message: 'Error fetching stats', error });
+    }
+});
 // Route to update earnings
 router.post('/:id/earnings', async (req, res) => {
     try {

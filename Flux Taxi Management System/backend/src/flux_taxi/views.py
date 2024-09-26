@@ -1,4 +1,15 @@
 # backend/src/flux_taxi/views.py
+def calculate_fare(request):
+    distance = request.GET.get('distance')
+    time = request.GET.get('time')
+    
+    base_fare = 50
+    cost_per_km = 10
+    cost_per_minute = 5
+    
+    total_fare = base_fare + (cost_per_km * float(distance)) + (cost_per_minute * float(time))
+    return JsonResponse({'total_fare': total_fare})
+# backend/src/flux_taxi/views.py
 from channels.generic.websocket import WebsocketConsumer
 import json
 

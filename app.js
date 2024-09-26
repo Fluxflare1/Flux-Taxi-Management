@@ -1,3 +1,18 @@
+import React from 'react';
+import AffiliateRegistration from './AffiliateRegistration';
+import ReferralTracking from './ReferralTracking';
+
+const App = () => {
+    return (
+        <div>
+            <h1>Flux Taxi Management System</h1>
+            <AffiliateRegistration />
+            <ReferralTracking />
+        </div>
+    );
+};
+
+export default App;
 const passport = require('passport');
 const session = require('express-session');
 

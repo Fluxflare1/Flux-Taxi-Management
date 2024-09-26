@@ -1,0 +1,11 @@
+<h2>Manage Vehicles</h2>
+<form method="POST">
+  {% csrf_token %}
+  {{ form.as_p }}
+  <button type="submit">Add Vehicle</button>
+</form>
+<ul>
+  {% for vehicle in vehicles %}
+    <li>{{ vehicle.make }} {{ vehicle.model }} ({{ vehicle.year }}) - {{ vehicle.status }}</li>
+  {% endfor %}
+</ul>

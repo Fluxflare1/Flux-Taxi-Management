@@ -1,3 +1,8 @@
+const getReferralLink = async (req, res) => {
+    const affiliateId = req.params.affiliateId;
+    const referralLink = `https://yourdomain.com/register?ref=${affiliateId}`;
+    res.status(200).json({ referralLink });
+};
 const Affiliate = require('./affiliateModel');
 
 // Register a new affiliate

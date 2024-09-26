@@ -1,3 +1,14 @@
+from .models import Driver, Passenger
+
+def user_report(request):
+    total_drivers = Driver.objects.count()
+    total_passengers = Passenger.objects.count()
+
+    context = {
+        'total_drivers': total_drivers,
+        'total_passengers': total_passengers,
+    }
+    return render(request, 'user_report.html', context)
 from django.shortcuts import render
 from .models import Trip
 

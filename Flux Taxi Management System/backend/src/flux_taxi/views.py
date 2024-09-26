@@ -1,3 +1,23 @@
+from django.core.cache import cache
+
+def trip_report(request):
+    # Cache key
+    cache_key = 'trip_report_stats'
+    stats = cache.get(cache_key)
+
+    if not stats:
+        total_trips = Trip.objects.count()
+        completed_trips = Trip.objects.filter(status='completed').count()
+        # Additional calculations...
+        
+        stats = {
+            'total_trips': total_trips,
+            'completed_trips': completed_trips,
+            # Other stats...
+        }
+        cache.set(cache_key, stats, timeout=60*15)  # Cache for 15 minutes
+
+    return render(request, 'trip_report.html', stats)
 # backend/src/flux_taxi/views.py
 def calculate_fare(request):
     distance = request.GET.get('distance')

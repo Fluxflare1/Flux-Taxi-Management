@@ -1,4 +1,12 @@
 # flux_taxi/settings.py
+import sentry_sdk
+from sentry_sdk.integrations.django import DjangoIntegration
+
+sentry_sdk.init(
+    dsn="your_sentry_dsn",
+    integrations=[DjangoIntegration()],
+)
+# flux_taxi/settings.py
 SECURE_SSL_REDIRECT = True
 # flux_taxi/settings.py
 INSTALLED_APPS = [

@@ -1,4 +1,11 @@
 # flux_taxi/urls.py
+from django.urls import path, include
+
+urlpatterns = [
+    path('ride-hailing/', include('flux_taxi.ride_hailing.urls')),
+    # other url patterns...
+]
+# flux_taxi/urls.py
 
 from django.urls import include, path
 

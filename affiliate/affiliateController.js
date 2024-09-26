@@ -1,3 +1,8 @@
+const promoteService = async (req, res) => {
+    const { affiliateId, serviceId } = req.body;
+    // Logic to handle service promotion
+    res.status(200).json({ message: 'Service promoted successfully' });
+};
 const updateEarnings = async (affiliateId, amount) => {
     await Affiliate.findByIdAndUpdate(affiliateId, { $inc: { totalEarnings: amount } });
 };

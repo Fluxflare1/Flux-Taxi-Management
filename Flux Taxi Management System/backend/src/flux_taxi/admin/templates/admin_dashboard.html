@@ -1,0 +1,24 @@
+<h2>Trips Overview</h2>
+
+<table>
+  <thead>
+    <tr>
+      <th>Driver</th>
+      <th>Pickup Location</th>
+      <th>Dropoff Location</th>
+      <th>Fare</th>
+      <th>Status</th>
+    </tr>
+  </thead>
+  <tbody>
+    {% for trip in trips %}
+      <tr>
+        <td>{{ trip.driver.user.username }}</td>
+        <td>{{ trip.pickup_location }}</td>
+        <td>{{ trip.dropoff_location }}</td>
+        <td>₦{{ trip.fare }}</td>
+        <td>{{ trip.status }}</td>
+      </tr>
+    {% endfor %}
+  </tbody>
+</table>

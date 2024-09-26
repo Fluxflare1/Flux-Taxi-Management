@@ -1,3 +1,17 @@
+const express = require('express');
+const router = express.Router();
+const affiliateController = require('./affiliateController');
+
+// Route for affiliate registration
+router.post('/register', affiliateController.registerAffiliate);
+
+// Route for tracking referrals
+router.post('/referral', affiliateController.trackReferral);
+
+// Route for retrieving affiliate earnings
+router.get('/earnings/:id', affiliateController.getEarnings);
+
+module.exports = router;
 router.post('/promote-service', promoteService);
 // ... existing imports
 const { registerAffiliate, getReferralLink } = require('./affiliateController');

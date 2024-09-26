@@ -1,3 +1,13 @@
+from notification.views import send_notification
+
+def update_trip_status(trip, status):
+    trip.status = status
+    trip.save()
+    subject = f"Your trip status is now: {status}"
+    message = f"Hello, your trip status has changed to: {status}. Thank you for using Flux Taxi."
+    send_notification(trip.passenger, subject, message)
+    if trip.driver:
+        send_notification(trip.driver, subject, message)
 def track_trip(request, trip_id):
     trip = Trip.objects.get(id=trip_id)
     driver_location = get_driver_location(trip.driver)  # Placeholder for real-time GPS data

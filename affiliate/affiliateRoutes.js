@@ -1,5 +1,30 @@
 // affiliate/affiliateRoutes.js
 const express = require('express');
+const { check, validationResult } = require('express-validator');
+const router = express.Router();
+const Affiliate = require('./affiliateModel');
+
+// Route for registering as an affiliate
+router.post('/register', [
+    check('userId').isMongoId().withMessage('User ID must be valid'),
+    check('referralCode').isString().withMessage('Referral code must be a string')
+], async (req, res) => {
+    const errors = validationResult(req);
+    if (!errors.isEmpty()) {
+        return res.status(400).json({ errors: errors.array() });
+    }
+
+    try {
+        const { userId, referralCode } = req.body;
+        const newAffiliate = new Affiliate({ userId, referralCode });
+        await newAffiliate.save();
+        res.status(201).json(newAffiliate);
+    } catch (error) {
+        res.status(500).json({ message: 'Error registering affiliate', error });
+    }
+});
+// affiliate/affiliateRoutes.js
+const express = require('express');
 const router = express.Router();
 const Affiliate = require('./affiliateModel');
 

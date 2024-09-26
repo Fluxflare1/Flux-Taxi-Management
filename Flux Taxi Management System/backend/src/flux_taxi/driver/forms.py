@@ -1,3 +1,12 @@
+# flux_taxi/driver/forms.py
+
+from django import forms
+from .models import Driver
+
+class PreferredDestinationForm(forms.ModelForm):
+    class Meta:
+        model = Driver
+        fields = ['preferred_destination']
 from django import forms
 from .models import Driver, Vehicle
 

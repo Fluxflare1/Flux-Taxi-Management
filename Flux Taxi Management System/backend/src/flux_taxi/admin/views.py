@@ -1,3 +1,10 @@
+def earnings_report(request):
+    total_earnings = Trip.objects.aggregate(Sum('fare'))['fare__sum'] or 0
+
+    context = {
+        'total_earnings': total_earnings,
+    }
+    return render(request, 'earnings_report.html', context)
 from .models import Driver, Passenger
 
 def user_report(request):

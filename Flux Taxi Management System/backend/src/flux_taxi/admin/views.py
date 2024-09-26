@@ -1,4 +1,11 @@
 from django.shortcuts import render
+from trip.models import Trip
+
+def admin_dashboard(request):
+    trips = Trip.objects.all()
+    context = {'trips': trips}
+    return render(request, 'admin_dashboard.html', context)
+from django.shortcuts import render
 from django.contrib.auth.decorators import login_required
 from flux_taxi.models import Booking, Driver, Vehicle, Earnings
 

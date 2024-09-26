@@ -1,3 +1,6 @@
+const updateEarnings = async (affiliateId, amount) => {
+    await Affiliate.findByIdAndUpdate(affiliateId, { $inc: { totalEarnings: amount } });
+};
 const getReferralLink = async (req, res) => {
     const affiliateId = req.params.affiliateId;
     const referralLink = `https://yourdomain.com/register?ref=${affiliateId}`;

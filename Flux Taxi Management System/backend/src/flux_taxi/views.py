@@ -1,3 +1,20 @@
+# backend/src/flux_taxi/views.py
+from rest_framework.views import APIView
+from rest_framework.response import Response
+
+class SubmitRating(APIView):
+    def post(self, request):
+        ride_id = request.data.get('ride_id')
+        rating = request.data.get('rating')
+        user_type = request.data.get('user_type')  # passenger or driver
+        
+        ride = Ride.objects.get(id=ride_id)
+        if user_type == 'passenger':
+            ride.rating_by_passenger = rating
+        elif user_type == 'driver':
+            ride.rating_by_driver = rating
+        ride.save()
+        return Response({'status': 'Rating submitted successfully'})
 from django.shortcuts import render
 from .models import Ride, FareSplit
 

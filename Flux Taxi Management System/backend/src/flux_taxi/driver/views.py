@@ -1,3 +1,11 @@
+from django.http import HttpResponseRedirect
+
+def toggle_availability(request):
+    driver = Driver.objects.get(user=request.user)
+    if request.method == 'POST':
+        driver.is_available = not driver.is_available
+        driver.save()
+        return HttpResponseRedirect('/driver/dashboard/')
 from .models import Trip
 
 def driver_dashboard(request):

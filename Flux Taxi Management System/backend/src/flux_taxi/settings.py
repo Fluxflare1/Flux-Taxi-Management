@@ -1,3 +1,8 @@
+# flux_taxi/settings.py
+INSTALLED_APPS = [
+    ...,
+    'django_otp',
+]
 CACHES = {
     'default': {
         'BACKEND': 'django.core.cache.backends.redis.RedisCache',

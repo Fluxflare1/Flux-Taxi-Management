@@ -1,3 +1,10 @@
+const passport = require('passport');
+const session = require('express-session');
+
+// Setup session middleware
+app.use(session({ secret: 'your_secret_key', resave: false, saveUninitialized: true }));
+app.use(passport.initialize());
+app.use(passport.session());
 // app.js
 const express = require('express');
 const mongoose = require('mongoose');

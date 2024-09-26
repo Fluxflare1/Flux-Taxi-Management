@@ -1,4 +1,27 @@
+const Referral = require('./referralModel'); // Import the Referral model
 
+// Other existing functions...
+
+// Function to track referrals
+exports.trackReferral = async (req, res) => {
+    const { affiliateId, referredUserId } = req.body;
+
+    try {
+        const newReferral = new Referral({
+            affiliateId,
+            referredUserId
+        });
+        await newReferral.save(); // Save the referral to the database
+
+        // Logic to update affiliate earnings can be added here
+
+        res.status(201).json(newReferral); // Respond with the created referral
+    } catch (error) {
+        res.status(500).json({ message: 'Error tracking referral', error }); // Handle errors
+    }
+};
+
+// Export other functions...
 const Affiliate = require('./affiliateModel');
 const User = require('../models/user'); // Assuming you have a User model
 

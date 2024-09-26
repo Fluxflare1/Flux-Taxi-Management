@@ -1,3 +1,12 @@
+const crypto = require('crypto');
+
+// Inside the Affiliate schema definition
+const affiliateSchema = new mongoose.Schema({
+    userId: { type: mongoose.Schema.Types.ObjectId, ref: 'User', required: true },
+    referralCode: { type: String, unique: true, default: () => crypto.randomBytes(4).toString('hex') }, // Unique code
+    earnings: { type: Number, default: 0 },
+    referrals: [{ type: mongoose.Schema.Types.ObjectId, ref: 'User' }]
+});
 // affiliate/affiliateModel.js
 const mongoose = require('mongoose');
 

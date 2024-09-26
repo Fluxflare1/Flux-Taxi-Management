@@ -1,3 +1,11 @@
+# backend/src/flux_taxi/models.py
+class Ride(models.Model):
+    driver = models.ForeignKey(Driver, on_delete=models.CASCADE)
+    passenger = models.ForeignKey(Passenger, on_delete=models.CASCADE)
+    rating_by_passenger = models.DecimalField(max_digits=2, decimal_places=1, null=True, blank=True)
+    rating_by_driver = models.DecimalField(max_digits=2, decimal_places=1, null=True, blank=True)
+
+# Additional logic to handle rating submissions
 from django.db import models
 from django.contrib.auth.models import User
 

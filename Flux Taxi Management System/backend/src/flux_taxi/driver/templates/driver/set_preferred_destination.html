@@ -1,0 +1,7 @@
+<!-- flux_taxi/driver/templates/driver/set_preferred_destination.html -->
+<h2>Set Preferred Destination</h2>
+<form method="post">
+    {% csrf_token %}
+    {{ form.as_p }}
+    <button type="submit">Set Destination</button>
+</form>

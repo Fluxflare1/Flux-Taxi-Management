@@ -1,3 +1,19 @@
+# flux_taxi/driver/views.py
+
+from django.shortcuts import render, redirect
+from .forms import PreferredDestinationForm
+from .models import Driver
+
+def set_preferred_destination(request):
+    driver = Driver.objects.get(user=request.user)  # Get the logged-in driver's instance
+    if request.method == 'POST':
+        form = PreferredDestinationForm(request.POST, instance=driver)
+        if form.is_valid():
+            form.save()
+            return redirect('home')  # Redirect to home or a relevant page after saving
+    else:
+        form = PreferredDestinationForm(instance=driver)
+    return render(request, 'driver/set_preferred_destination.html', {'form': form})
 def set_driver_availability(request, driver_id, availability):
     driver = Driver.objects.get(id=driver_id)
     driver.is_available = availability

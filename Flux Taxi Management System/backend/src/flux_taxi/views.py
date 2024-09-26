@@ -1,3 +1,31 @@
+def verify_kyc(request):
+    if request.method == 'POST':
+        # Logic to verify KYC
+        return JsonResponse({'status': 'KYC verification successful.'})
+def trip_receipt(request, trip_id):
+    if request.method == 'GET':
+        # Logic to retrieve trip receipt
+        return JsonResponse({'status': 'Receipt fetched successfully.', 'trip_id': trip_id})
+def book_ride_for_someone(request):
+    if request.method == 'POST':
+        passenger_info = request.POST.get('passenger_info')  # e.g., {"name": "John", "contact": "..."}
+        # Logic to book ride for someone else
+        return JsonResponse({'status': 'Ride booked successfully for someone else.'})
+def change_payment_method(request):
+    if request.method == 'POST':
+        new_method = request.POST.get('payment_method')
+        # Logic to update payment method
+        return JsonResponse({'status': 'Payment method updated successfully.'})
+def request_payment(request):
+    if request.method == 'POST':
+        # Logic to send payment request to family/friends
+        return JsonResponse({'status': 'Payment request sent.'})
+def share_location(request):
+    if request.method == 'POST':
+        # Logic to handle location sharing
+        location = request.POST.get('location')  # e.g. {"latitude":..., "longitude":...}
+        # Store location in the database or notify driver
+        return JsonResponse({'status': 'Location shared successfully.'})
 from django.http import JsonResponse
 
 def sos_request(request):

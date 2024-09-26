@@ -1,3 +1,15 @@
+// Route to update earnings
+router.post('/:id/earnings', async (req, res) => {
+    try {
+        const { earnings } = req.body;
+        const affiliate = await Affiliate.findById(req.params.id);
+        affiliate.earnings += earnings; // Update earnings
+        await affiliate.save();
+        res.status(200).json({ earnings: affiliate.earnings });
+    } catch (error) {
+        res.status(500).json({ message: 'Error updating earnings', error });
+    }
+});
 // affiliate/affiliateRoutes.js
 const express = require('express');
 const { check, validationResult } = require('express-validator');

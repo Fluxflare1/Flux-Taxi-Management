@@ -1,3 +1,14 @@
+const mongoose = require('mongoose');
+
+const affiliateSchema = new mongoose.Schema({
+    email: { type: String, required: true, unique: true },
+    // Add commission fields
+    totalEarnings: { type: Number, default: 0 },
+    // other fields...
+});
+
+const Affiliate = mongoose.model('Affiliate', affiliateSchema);
+module.exports = Affiliate;
 const crypto = require('crypto');
 
 // Inside the Affiliate schema definition

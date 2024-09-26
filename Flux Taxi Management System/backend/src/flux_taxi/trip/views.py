@@ -1,3 +1,18 @@
+def track_trip(request, trip_id):
+    trip = Trip.objects.get(id=trip_id)
+    driver_location = get_driver_location(trip.driver)  # Placeholder for real-time GPS data
+    context = {
+        'trip': trip,
+        'driver_location': driver_location
+    }
+    return render(request, 'track_trip.html', context)
+
+def get_driver_location(driver):
+    # Placeholder for getting real-time location (to be replaced by actual GPS service)
+    return {
+        'latitude': 6.5244,  # Example coordinates (Lagos, Nigeria)
+        'longitude': 3.3792
+    }
 def view_trip(request, trip_id):
     trip = Trip.objects.get(id=trip_id)
     context = {'trip': trip}

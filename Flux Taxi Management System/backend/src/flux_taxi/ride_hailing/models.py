@@ -1,3 +1,15 @@
+# flux_taxi/ride_hailing/models.py
+from django.db import models
+
+class RideRequest(models.Model):
+    user = models.ForeignKey('auth.User', on_delete=models.CASCADE)
+    pickup_location = models.CharField(max_length=255)
+    dropoff_location = models.CharField(max_length=255)
+    ride_status = models.CharField(max_length=50, default='pending')  # e.g., pending, accepted, completed
+    created_at = models.DateTimeField(auto_now_add=True)
+
+    def __str__(self):
+        return f"RideRequest from {self.pickup_location} to {self.dropoff_location}"
 from django.db import models
 from django.contrib.auth.models import User
 from django.utils.timezone import now

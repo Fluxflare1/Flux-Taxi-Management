@@ -1,3 +1,9 @@
+from django.urls import path
+from .views import estimate_fare
+
+urlpatterns = [
+    path('estimate-fare/', estimate_fare, name='estimate_fare'),
+]
 # In driver_aggregator/urls.py
 urlpatterns = [
     path('estimate-fare/', estimate_fare, name='driver_aggregator_estimate_fare'),

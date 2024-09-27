@@ -1,3 +1,10 @@
+def calculate_driver_aggregator_fare(self):
+    # Logic specific to Driver Aggregator fare calculation
+    # E.g., based on distance, time, or flat rate
+    fare_rate = FareRate.objects.get(service_type='Driver Aggregator')
+    total_fare = fare_rate.base_fare
+    # Add logic for calculating fare based on specific parameters
+    return total_fare
 from .models import FareRate
 
 class FareCalculator:

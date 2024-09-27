@@ -1,3 +1,7 @@
+# In driver_aggregator/urls.py
+urlpatterns = [
+    path('estimate-fare/', estimate_fare, name='driver_aggregator_estimate_fare'),
+]
 # flux_taxi/driver_aggregator/urls.py
 
 from django.urls import path

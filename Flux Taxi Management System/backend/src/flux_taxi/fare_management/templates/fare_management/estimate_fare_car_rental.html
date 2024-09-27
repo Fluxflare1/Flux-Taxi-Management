@@ -1,0 +1,13 @@
+<!-- templates/fare_management/estimate_fare_car_rental.html -->
+<h1>Car Rental Fare Estimation</h1>
+<form method="POST">
+    {% csrf_token %}
+    <label for="rental_duration">Rental Duration (in hours):</label>
+    <input type="number" name="rental_duration" step="0.01" required>
+    
+    <button type="submit">Estimate Fare</button>
+</form>
+
+{% if estimated_fare %}
+    <p>Estimated Fare: {{ estimated_fare }}</p>
+{% endif %}

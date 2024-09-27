@@ -1,0 +1,24 @@
+<!-- taxi/templates/unified_dashboard.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Unified Dashboard</title>
+    <link rel="stylesheet" href="{% static 'styles.css' %}">
+</head>
+<body>
+    <h1>Welcome to the Unified Dashboard</h1>
+    <nav>
+        <ul>
+            <li><a href="{% url 'estimate_ride_fare' %}">Ride-Hailing</a></li>
+            <li><a href="{% url 'carpooling_service' %}">Carpooling</a></li>
+            <li><a href="{% url 'shuttle_service' %}">Shuttle Service</a></li>
+            <li><a href="{% url 'car_rental_service' %}">Car Rental</a></li>
+            <li><a href="{% url 'airport_service' %}">Airport Service</a></li>
+            <li><a href="{% url 'corporate_taxi_service' %}">Corporate Taxi Service</a></li>
+            <li><a href="{% url 'outstation_service' %}">Outstation Service</a></li>
+        </ul>
+    </nav>
+</body>
+</html>

@@ -1,3 +1,38 @@
+from django.shortcuts import render
+from .fare_calculator import FareCalculator  # Adjust the import based on your project structure
+
+def estimate_fare(request):
+    estimated_fare = None  # Initialize variable for estimated fare
+
+    if request.method == 'POST':
+        service_type = request.POST.get('service_type')
+
+        # Prepare fare calculator based on service type
+        if service_type == 'Corporate Taxi Service':
+            distance = float(request.POST.get('distance_km'))
+            fare_calculator = FareCalculator(service_type='Corporate Taxi Service', distance_km=distance)
+
+        elif service_type == 'Outstation Service':
+            distance = float(request.POST.get('distance_km'))
+            fare_calculator = FareCalculator(service_type='Outstation Service', distance_km=distance)
+
+        elif service_type == 'Carpooling':
+            distance = float(request.POST.get('distance_km'))
+            passengers = int(request.POST.get('passengers', 1))  # Default to 1 passenger if not provided
+            fare_calculator = FareCalculator(service_type='Carpooling', distance_km=distance, passengers=passengers)
+
+        elif service_type == 'Shuttle Service':
+            route = request.POST.get('route')
+            fare_calculator = FareCalculator(service_type='Shuttle Service', route=route)
+
+        elif service_type == 'Fixed Route Taxi':
+            route = request.POST.get('route')
+            fare_calculator = FareCalculator(service_type='Fixed Route Taxi', route=route)
+
+        # Calculate the estimated fare
+        estimated_fare = fare_calculator.calculate_fare()
+
+    return render(request, 'fare_management/estimate_fare.html', {'estimated_fare': estimated_fare})
 # flux_taxi/fare_management/views.py
 
 from django.shortcuts import render

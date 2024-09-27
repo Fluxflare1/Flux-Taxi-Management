@@ -1,3 +1,18 @@
+from django.db import models
+
+class FareRate(models.Model):
+    service_type = models.CharField(max_length=50)  # e.g., Ride-Hailing, Driver Aggregator
+    base_fare = models.DecimalField(max_digits=10, decimal_places=2)
+    cost_per_km = models.DecimalField(max_digits=10, decimal_places=2, null=True, blank=True)
+    cost_per_minute = models.DecimalField(max_digits=10, decimal_places=2, null=True, blank=True)
+    hourly_rate = models.DecimalField(max_digits=10, decimal_places=2, null=True, blank=True)
+    daily_rate = models.DecimalField(max_digits=10, decimal_places=2, null=True, blank=True)
+    flat_rate = models.DecimalField(max_digits=10, decimal_places=2, null=True, blank=True)
+    surcharge = models.DecimalField(max_digits=10, decimal_places=2, default=0.00)
+    discount = models.DecimalField(max_digits=10, decimal_places=2, default=0.00)
+
+    def __str__(self):
+        return f"{self.service_type} Fare Rate"
 # models.py
 class FareRate(models.Model):
     service_type = models.CharField(max_length=50)  # e.g., Ride-Hailing, Driver Aggregator

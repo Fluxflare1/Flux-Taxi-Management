@@ -1,3 +1,15 @@
+<h1>Driver Aggregator Fare Estimation</h1>
+<form method="POST">
+    {% csrf_token %}
+    <label for="distance_km">Distance (km):</label>
+    <input type="number" name="distance_km" step="0.01" required>
+    
+    <button type="submit">Estimate Fare</button>
+</form>
+
+{% if estimated_fare %}
+    <p>Estimated Fare: {{ estimated_fare }}</p>
+{% endif %}
 <!-- templates/fare_management/estimate_fare.html -->
 <h1>Driver Aggregator Fare Estimation</h1>
 <form method="POST">

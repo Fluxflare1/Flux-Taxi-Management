@@ -1,6 +1,28 @@
 # flux_taxi/fare_management/views.py
 
 from django.shortcuts import render
+from .services import FareCalculator
+
+def estimate_fare(request):
+    if request.method == 'POST':
+        service_type = request.POST.get('service_type')
+
+        if service_type == 'Ride-Hailing':
+            distance_km = float(request.POST.get('distance_km'))
+            duration_minutes = float(request.POST.get('duration_minutes'))
+            fare_calculator = FareCalculator(service_type='Ride-Hailing', distance_km=distance_km, duration_minutes=duration_minutes)
+        elif service_type == 'Car Rental':
+            rental_duration = float(request.POST.get('rental_duration'))
+            fare_calculator = FareCalculator(service_type='Car Rental', rental_duration=rental_duration)
+        # Add other services
+
+        estimated_fare = fare_calculator.calculate_fare()
+        return render(request, 'fare_management/estimate_fare.html', {'estimated_fare': estimated_fare})
+
+    return render(request, 'fare_management/estimate_fare.html')
+# flux_taxi/fare_management/views.py
+
+from django.shortcuts import render
 from django.http import HttpResponse
 
 # Example fare calculation logic (customize as needed)

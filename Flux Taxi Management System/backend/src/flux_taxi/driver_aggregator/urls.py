@@ -1,3 +1,11 @@
+# urls.py
+from django.urls import path
+from .views import estimate_driver_aggregator_fare
+
+urlpatterns = [
+    path('estimate-driver-aggregator-fare/', estimate_driver_aggregator_fare, name='estimate_driver_aggregator_fare'),
+    # Add other URL patterns...
+]
 from django.urls import path
 from .views import estimate_fare
 

@@ -1,3 +1,9 @@
+from django.urls import include, path
+
+urlpatterns = [
+    # Other service URLs...
+    path('driver-aggregator/', include('driver_aggregator.urls')),
+]
 # flux_taxi/urls.py
 
 from django.urls import path, include

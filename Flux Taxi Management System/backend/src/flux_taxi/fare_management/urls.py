@@ -1,3 +1,10 @@
+# In your urls.py
+from .views import estimate_corporate_taxi_fare
+
+urlpatterns = [
+    # Other URL patterns...
+    path('estimate-corporate-taxi-fare/', estimate_corporate_taxi_fare, name='estimate_corporate_taxi_fare'),
+]
 # flux_taxi/fare_management/urls.py
 
 from django.urls import path

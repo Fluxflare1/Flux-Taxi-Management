@@ -1,3 +1,10 @@
+from django.urls import path
+from .views import estimate_car_rental_fare
+
+urlpatterns = [
+    # Other URL patterns...
+    path('estimate-car-rental-fare/', estimate_car_rental_fare, name='estimate_car_rental_fare'),
+]
 from django.shortcuts import render
 from fare_management.utils import FareCalculator
 

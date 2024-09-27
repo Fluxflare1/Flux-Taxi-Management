@@ -1,3 +1,8 @@
+class FareRate(models.Model):
+    service_type = models.CharField(max_length=50)  # e.g., Driver Aggregator
+    base_fare = models.DecimalField(max_digits=10, decimal_places=2)
+    cost_per_km = models.DecimalField(max_digits=10, decimal_places=2, null=True, blank=True)
+    # Other fields can be included as needed...
 # flux_taxi/driver_aggregator/models.py
 
 from django.db import models

@@ -1,4 +1,16 @@
 from django.shortcuts import render
+from fare_management.utils import FareCalculator
+
+def estimate_car_rental_fare(request):
+    if request.method == 'POST':
+        rental_duration = float(request.POST.get('rental_duration'))  # Duration in hours
+        fare_calculator = FareCalculator(service_type='Car Rental', rental_duration=rental_duration)
+        estimated_fare = fare_calculator.calculate_car_rental_fare()  # Update this line
+
+        return render(request, 'fare_management/estimate_fare_car_rental.html', {'estimated_fare': estimated_fare})
+
+    return render(request, 'fare_management/estimate_fare_car_rental.html')
+from django.shortcuts import render
 from .fare_calculator import FareCalculator  # Adjust the import based on your project structure
 
 def estimate_fare(request):

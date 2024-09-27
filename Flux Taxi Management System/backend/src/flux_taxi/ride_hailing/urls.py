@@ -1,3 +1,7 @@
+# In ride_hailing/urls.py
+urlpatterns = [
+    path('estimate-fare/', ride_hailing_estimate_fare, name='ride_hailing_estimate_fare'),
+]
 # flux_taxi/ride_hailing/urls.py
 from django.urls import path
 from .views import request_ride, ride_confirmation

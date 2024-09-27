@@ -1,3 +1,14 @@
+def estimate_fare(request):
+    if request.method == 'POST':
+        service_type = request.POST.get('service_type')
+        if service_type == 'Driver Aggregator':
+            # Capture necessary parameters and calculate fare
+            fare_calculator = FareCalculator(service_type='Driver Aggregator', ...)
+            estimated_fare = fare_calculator.calculate_driver_aggregator_fare()
+        # Handle other service types
+        return render(request, 'fare_management/estimate_fare.html', {'estimated_fare': estimated_fare})
+
+    return render(request, 'fare_management/estimate_fare.html')
 from django.shortcuts import render
 from .fare_calculator import FareCalculator
 

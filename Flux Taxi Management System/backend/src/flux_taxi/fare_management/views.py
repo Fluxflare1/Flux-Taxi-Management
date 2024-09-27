@@ -1,3 +1,13 @@
+# In your fare_management/views.py
+def estimate_corporate_taxi_fare(request):
+    if request.method == 'POST':
+        rental_duration = float(request.POST.get('rental_duration'))  # Duration in hours
+        fare_calculator = FareCalculator(service_type='Corporate Taxi Service', rental_duration=rental_duration)
+        estimated_fare = fare_calculator.calculate_corporate_taxi_fare()
+
+        return render(request, 'fare_management/estimate_fare_corporate_taxi.html', {'estimated_fare': estimated_fare})
+
+    return render(request, 'fare_management/estimate_fare_corporate_taxi.html')
 from django.urls import path
 from .views import estimate_car_rental_fare
 

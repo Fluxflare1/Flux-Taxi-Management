@@ -1,3 +1,15 @@
+from django.shortcuts import render
+from .fare_calculator import FareCalculator
+
+def estimate_driver_aggregator_fare(request):
+    if request.method == 'POST':
+        distance_km = float(request.POST.get('distance_km'))
+        fare_calculator = FareCalculator(service_type='Driver Aggregator', distance_km=distance_km)
+
+        estimated_fare = fare_calculator.calculate_fare()
+        return render(request, 'fare_management/estimate_fare.html', {'estimated_fare': estimated_fare})
+
+    return render(request, 'fare_management/estimate_fare.html')
 # views.py
 from django.shortcuts import render
 from .fare_calculator import FareCalculator

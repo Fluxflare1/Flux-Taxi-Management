@@ -1,0 +1,23 @@
+<!-- templates/fare_management/estimate_fare.html -->
+<h1>Fare Estimation</h1>
+<form method="POST">
+    {% csrf_token %}
+    <label for="service_type">Service Type:</label>
+    <select name="service_type" id="service_type">
+        <option value="Ride-Hailing">Ride-Hailing</option>
+        <option value="Car Rental">Car Rental</option>
+        <!-- Add more service types -->
+    </select>
+    
+    <label for="distance_km">Distance (km):</label>
+    <input type="number" name="distance_km" step="0.01" required>
+    
+    <label for="duration_minutes">Duration (minutes):</label>
+    <input type="number" name="duration_minutes" step="0.01" required>
+    
+    <button type="submit">Estimate Fare</button>
+</form>
+
+{% if estimated_fare %}
+    <p>Estimated Fare: {{ estimated_fare }}</p>
+{% endif %}
